@@ -6,6 +6,7 @@ public class GeneratePhysicalDealsRequest extends AbstractGenerateDealsRequest {
 
     private String marketIndexName;
     private BigDecimal dealPrice;
+    private String dealIndexName;
     private String dealPriceCurrency = "CAD";
     private String dealPriceUnitOfMeasure = "GJ";
 
@@ -39,5 +40,13 @@ public class GeneratePhysicalDealsRequest extends AbstractGenerateDealsRequest {
 
     public void setDealPriceUnitOfMeasure(String dealPriceUnitOfMeasure) {
         this.dealPriceUnitOfMeasure = dealPriceUnitOfMeasure;
+    }
+
+    public String getDealIndexName() {
+        return dealIndexName;
+    }
+
+    public void setDealIndexName(String dealIndexName) {
+        this.dealIndexName = dealIndexName;
     }
 }

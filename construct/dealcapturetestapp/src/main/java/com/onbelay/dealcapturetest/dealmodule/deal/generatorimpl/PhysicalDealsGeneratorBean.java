@@ -8,6 +8,7 @@ import com.onbelay.dealcapturetest.dealmodule.deal.snapshot.PhysicalDealSnapshot
 import com.onbelay.dealcapturetest.testharness.snapshot.GeneratePhysicalDealsRequest;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,9 @@ public class PhysicalDealsGeneratorBean implements PhysicalDealsGenerator {
             snapshot.getDealDetail().setTicketNo(ticketNo);
             snapshot.getDealDetail().setCommodityCodeValue("NATGAS");
 
-            snapshot.getDetail().setDealPriceValuationCode(ValuationCode.FIXED);
+            snapshot.getDetail().setDealPriceValuationCode(determineDealPriceValuationCode(
+                    request.getDealIndexName(),
+                    request.getDealPrice()));
             snapshot.getDetail().setMarketValuationCode(ValuationCode.INDEX);
 
             snapshot.setMarketPriceIndexId(new EntityId(request.getMarketIndexName()));
@@ -32,7 +35,7 @@ public class PhysicalDealsGeneratorBean implements PhysicalDealsGenerator {
             snapshot.setCounterpartyRoleId(new EntityId(request.getCounterpartyName()));
 
             snapshot.getDealDetail().setDealStatusCodeValue(request.getDealStatus());
-            snapshot.getDealDetail().setBuySellCodeValue("BUY");
+            snapshot.getDealDetail().setBuySellCodeValue(request.getBuySellCode());
             snapshot.getDealDetail().setStartDate(request.getStartDate());
             snapshot.getDealDetail().setEndDate(request.getEndDate());
             snapshot.getDealDetail().setReportingCurrencyCodeValue(request.getReportingCurrency());
@@ -47,5 +50,17 @@ public class PhysicalDealsGeneratorBean implements PhysicalDealsGenerator {
         }
 
         return deals;
+    }
+
+    private ValuationCode determineDealPriceValuationCode(String dealIndexName, BigDecimal dealPrice) {
+        if (dealPrice != null) {
+            if (dealIndexName == null)
+                return ValuationCode.FIXED;
+            else
+                return ValuationCode.INDEX_PLUS;
+        }  else {
+            return ValuationCode.INDEX;
+        }
+
     }
 }

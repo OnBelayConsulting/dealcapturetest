@@ -14,6 +14,7 @@ public class AbstractGenerateDealsRequest {
     private LocalDate startDate = LocalDate.of(2023, 1, 1);
     private LocalDate endDate= LocalDate.of(2023, 12, 31);
     private String dealStatus = DealStatusCode.VERIFIED.getCode();
+    private String buySellCode = "BUY";
     private String ticketNoPrefix = "tk_";
     private String unitOfMeasureCode = "GJ";
     private String reportingCurrency = "CAD";
@@ -97,5 +98,13 @@ public class AbstractGenerateDealsRequest {
 
     public void setVolumeQuantity(BigDecimal volumeQuantity) {
         this.volumeQuantity = volumeQuantity;
+    }
+
+    public String getBuySellCode() {
+        return buySellCode;
+    }
+
+    public void setBuySellCode(String buySellCode) {
+        this.buySellCode = buySellCode;
     }
 }
