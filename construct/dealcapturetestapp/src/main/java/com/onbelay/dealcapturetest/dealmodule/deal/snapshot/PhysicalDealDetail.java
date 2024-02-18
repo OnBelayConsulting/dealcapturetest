@@ -28,9 +28,9 @@ public class PhysicalDealDetail  {
 
 	private String dealPriceValuationCodeValue;
 	private String marketValuationCodeValue;
-	private BigDecimal dealPriceValue;
-	private String dealPriceCurrencyCodeValue;
-	private String dealPriceUnitOfMeasureCodeValue;
+	private BigDecimal fixedPriceValue;
+	private String fixedPriceCurrencyCodeValue;
+	private String fixedPriceUnitOfMeasureCodeValue;
 
 	public PhysicalDealDetail() {
 	}
@@ -46,9 +46,9 @@ public class PhysicalDealDetail  {
 			UnitOfMeasureCode unitOfMeasure) {
 
 		dealPriceValuationCodeValue = ValuationCode.FIXED.getCode();
-		this.dealPriceValue = dealPrice;
-		this.dealPriceCurrencyCodeValue = currency.getCode();
-		this.dealPriceUnitOfMeasureCodeValue = unitOfMeasure.getCode();
+		this.fixedPriceValue = dealPrice;
+		this.fixedPriceCurrencyCodeValue = currency.getCode();
+		this.fixedPriceUnitOfMeasureCodeValue = unitOfMeasure.getCode();
 	}
 
 	@JsonIgnore
@@ -85,47 +85,29 @@ public class PhysicalDealDetail  {
 		this.dealPriceValuationCodeValue = dealPriceValuationCodeValue;
 	}
 
-    public BigDecimal getDealPriceValue() {
-		return dealPriceValue;
+    public BigDecimal getFixedPriceValue() {
+		return fixedPriceValue;
 	}
 
-    public void setDealPriceValue(BigDecimal dealPriceValue) {
-		this.dealPriceValue = dealPriceValue;
+    public void setFixedPriceValue(BigDecimal fixedPriceValue) {
+		this.fixedPriceValue = fixedPriceValue;
 	}
 
-	@JsonIgnore
-	public CurrencyCode getDealPriceCurrency() {
-		return CurrencyCode.lookUp(dealPriceCurrencyCodeValue);
-	}
-
-	public void setDealPriceCurrency(CurrencyCode code) {
-		this.dealPriceCurrencyCodeValue = code.getCode();
-	}
-
-    public String getDealPriceCurrencyCodeValue() {
-		return dealPriceCurrencyCodeValue;
+    public String getFixedPriceCurrencyCodeValue() {
+		return fixedPriceCurrencyCodeValue;
 	}
 
 
-    public void setDealPriceCurrencyCodeValue(String dealPriceCurrencyValue) {
-		this.dealPriceCurrencyCodeValue = dealPriceCurrencyValue;
+    public void setFixedPriceCurrencyCodeValue(String dealPriceCurrencyValue) {
+		this.fixedPriceCurrencyCodeValue = dealPriceCurrencyValue;
 	}
 
-	@JsonIgnore
-	public UnitOfMeasureCode getDealPriceUnitOfMeasure() {
-		return UnitOfMeasureCode.lookUp(dealPriceUnitOfMeasureCodeValue);
+    public String getFixedPriceUnitOfMeasureCodeValue() {
+		return fixedPriceUnitOfMeasureCodeValue;
 	}
 
-	public void setDealPriceUnitOfMeasure(UnitOfMeasureCode code) {
-		this.dealPriceUnitOfMeasureCodeValue = code.getCode();
-	}
-
-    public String getDealPriceUnitOfMeasureCodeValue() {
-		return dealPriceUnitOfMeasureCodeValue;
-	}
-
-    public void setDealPriceUnitOfMeasureCodeValue(String dealPriceUoMValue) {
-		this.dealPriceUnitOfMeasureCodeValue = dealPriceUoMValue;
+    public void setFixedPriceUnitOfMeasureCodeValue(String dealPriceUoMValue) {
+		this.fixedPriceUnitOfMeasureCodeValue = dealPriceUoMValue;
 	}
 
     public void copyFrom(PhysicalDealDetail copy) {
@@ -135,14 +117,14 @@ public class PhysicalDealDetail  {
 		if (copy.marketValuationCodeValue != null)
 			this.marketValuationCodeValue = copy.marketValuationCodeValue;
 
-		if (copy.dealPriceValue != null)
-    		this.dealPriceValue = copy.dealPriceValue;
+		if (copy.fixedPriceValue != null)
+    		this.fixedPriceValue = copy.fixedPriceValue;
     	
-    	if (copy.dealPriceCurrencyCodeValue != null)
-    		this.dealPriceCurrencyCodeValue = copy.dealPriceCurrencyCodeValue;
+    	if (copy.fixedPriceCurrencyCodeValue != null)
+    		this.fixedPriceCurrencyCodeValue = copy.fixedPriceCurrencyCodeValue;
     	
-    	if (copy.dealPriceUnitOfMeasureCodeValue != null)
-    		this.dealPriceUnitOfMeasureCodeValue = copy.dealPriceUnitOfMeasureCodeValue;
+    	if (copy.fixedPriceUnitOfMeasureCodeValue != null)
+    		this.fixedPriceUnitOfMeasureCodeValue = copy.fixedPriceUnitOfMeasureCodeValue;
     }
 	
 }

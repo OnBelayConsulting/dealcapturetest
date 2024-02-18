@@ -265,9 +265,9 @@ public class TestHarnessRestControllerTest {
 		request.setCompanyName("CO");
 		request.setCounterpartyName("CP");
 		request.setDealStatus("V");
-		request.setDealPrice(BigDecimal.valueOf(1.45));
-		request.setDealPriceCurrency("CAD");
-		request.setDealPriceUnitOfMeasure("GJ");
+		request.setFixedPrice(BigDecimal.valueOf(1.45));
+		request.setFixedPriceCurrency("CAD");
+		request.setFixedPriceUnitOfMeasure("GJ");
 		request.setStartDate(LocalDate.of(2023,  1, 1));
 		request.setEndDate(LocalDate.of(2023,  1, 31));
 		request.setReportingCurrency("USD");

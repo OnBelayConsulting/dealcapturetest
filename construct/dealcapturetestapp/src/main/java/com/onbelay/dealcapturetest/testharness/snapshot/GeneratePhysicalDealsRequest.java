@@ -5,10 +5,10 @@ import java.math.BigDecimal;
 public class GeneratePhysicalDealsRequest extends AbstractGenerateDealsRequest {
 
     private String marketIndexName;
-    private BigDecimal dealPrice;
+    private BigDecimal fixedPrice;
     private String dealIndexName;
-    private String dealPriceCurrency = "CAD";
-    private String dealPriceUnitOfMeasure = "GJ";
+    private String fixedPriceCurrency = "CAD";
+    private String fixedPriceUnitOfMeasure = "GJ";
 
     public String getMarketIndexName() {
         return marketIndexName;
@@ -18,28 +18,28 @@ public class GeneratePhysicalDealsRequest extends AbstractGenerateDealsRequest {
         this.marketIndexName = marketIndexName;
     }
 
-    public BigDecimal getDealPrice() {
-        return dealPrice;
+    public BigDecimal getFixedPrice() {
+        return fixedPrice;
     }
 
-    public void setDealPrice(BigDecimal dealPrice) {
-        this.dealPrice = dealPrice;
+    public void setFixedPrice(BigDecimal fixedPrice) {
+        this.fixedPrice = fixedPrice;
     }
 
-    public String getDealPriceCurrency() {
-        return dealPriceCurrency;
+    public String getFixedPriceCurrency() {
+        return fixedPriceCurrency;
     }
 
-    public void setDealPriceCurrency(String dealPriceCurrency) {
-        this.dealPriceCurrency = dealPriceCurrency;
+    public void setFixedPriceCurrency(String fixedPriceCurrency) {
+        this.fixedPriceCurrency = fixedPriceCurrency;
     }
 
-    public String getDealPriceUnitOfMeasure() {
-        return dealPriceUnitOfMeasure;
+    public String getFixedPriceUnitOfMeasure() {
+        return fixedPriceUnitOfMeasure;
     }
 
-    public void setDealPriceUnitOfMeasure(String dealPriceUnitOfMeasure) {
-        this.dealPriceUnitOfMeasure = dealPriceUnitOfMeasure;
+    public void setFixedPriceUnitOfMeasure(String fixedPriceUnitOfMeasure) {
+        this.fixedPriceUnitOfMeasure = fixedPriceUnitOfMeasure;
     }
 
     public String getDealIndexName() {
